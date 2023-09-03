@@ -50,14 +50,19 @@ export default {
       setUserInfo: SET_USER_INFO
     }),
     onSubmit () {
-      const {$refs, $api, form, $message, $notify, setUserInfo, $router} = this
+      const {$refs, $message, $notify, setUserInfo, $router} = this
 
       $refs.form.validate(async (valid) => {
         if (!valid) return false
         this.submitLoad = true
 
         try {
-          const {data, msg} = await $api.user.login(form)
+          // const {data, msg} = await $api.user.login(form)
+          const data = {
+            avatar: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F48341978&psig=AOvVaw04ESy5hTIpCNJfpf_dK5JS&ust=1693819137107000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKj3u5eOjoEDFQAAAAAdAAAAABAH',
+            name: 'wenquan'
+          }
+          const msg = '登录成功'
           setUserInfo(data)
           $message.success(msg)
           $router.replace(homePage)

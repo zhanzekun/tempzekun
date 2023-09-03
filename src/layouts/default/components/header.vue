@@ -38,10 +38,11 @@ export default {
     }),
     // 登出
     async onLogout () {
-      const {$confirm, $api, $message, $router, setUserInfo} = this
+      const {$confirm, $message, $router, setUserInfo} = this
       try {
         await $confirm('此操作将退出登录, 是否继续?', '提示', {type: 'warning'})
-        const {msg} = await $api.user.logout()
+        // const {msg} = await $api.user.logout()
+        const msg = '成功登出'
         $message.success(msg)
         setUserInfo(null)
         $router.replace(UserLogin.path)

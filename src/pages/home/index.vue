@@ -1,7 +1,6 @@
 <template>
   <ui-container>
-    <div slot="header">header</div>
-    <div>home page</div>
+    <div> 角色： singer</div>
   </ui-container>
 </template>
 <script type="text/javascript">
